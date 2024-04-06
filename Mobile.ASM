@@ -7,7 +7,7 @@
     brands              db 10, 13,"1. Samsung", 10, 13, "2. Apple", 10, 13, "3. Xiaomi", 10, 13,"4. Exit", 10, 13,"$"
     samsung_phones      db 10, 13,"1. Galaxy S21", 10, 13, "2. Galaxy Note 20", 10, 13,"0. Back", 10, 13,"$"
     apple_phones        db 10, 13,"1. iPhone 12", 10, 13, "2. iPhone SE", 10, 13,"0. Back", 10, 13,"$"
-    xiaomi_phones       db 10, 13,"2. Mi 11", 10, 13,"2. Redmi Note 10", 10, 13,"0. Back", 10, 13,"4. Exit", 10, 13,"$"
+    xiaomi_phones       db 10, 13,"1. Mi 11", 10, 13,"2. Redmi Note 10", 10, 13,"0. Back", 10, 13,"4. Exit", 10, 13,"$"
     specs_msg           db "Specifications:", 10, 13, "$"
     galaxy_s21_specs    db 10, 13,"Galaxy S21 Specs: 6.2-inch display, 12GB RAM, 128GB storage", 10, 13, "$"
     note_20_specs       db 10, 13,"Galaxy Note 20 Specs: 6.7-inch display, 8GB RAM, 256GB storage", 10, 13, "$"
