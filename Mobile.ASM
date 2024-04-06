@@ -15,7 +15,13 @@
   iphone_se_specs     db 10, 13,"iPhone SE Specs: 4.7-inch display, 3GB RAM, 64GB storage", 10, 13, "$"
   mi_11_specs         db 10, 13,"Mi 11 Specs: 6.81-inch display, 8GB RAM, 128GB storage", 10, 13, "$"
   redmi_note_10_specs db 10, 13,"Redmi Note 10 Specs: 6.43-inch display, 6GB RAM, 128GB storage", 10, 13, "$"
-  press_key_msg       db "Press any key to continue...", 0Dh, 0Ah, "$"
+  galaxy_s21_price    db "Price: PKR 150,000", 10, 13, "$"
+  note_20_price       db "Price: PKR 120,000", 10, 13, "$"
+  iphone_12_price     db "Price: PKR 170,000", 10, 13, "$"
+  iphone_se_price     db "Price: PKR 90,000", 10, 13, "$"
+  mi_11_price         db "Price: PKR 100,000", 10, 13, "$"
+  redmi_note_10_price db "Price: PKR 50,000", 10, 13, "$"
+  press_key_msg       db "Press any key to continue...", 10, 13, "$"
 
 
 .code
@@ -149,6 +155,9 @@ print_galaxy_s21_specs proc
                             mov  ah, 09h
                             lea  dx, galaxy_s21_specs
                             int  21h
+                            mov  ah, 09h
+                            lea  dx, galaxy_s21_price
+                            int  21h
 
                             call press_any_key
 
@@ -159,6 +168,9 @@ print_note_20_specs proc
                             mov  ah, 09h
                             lea  dx, note_20_specs
                             int  21h
+                            mov  ah, 09h
+                            lea  dx, note_20_price
+                            int  21h
                             call press_any_key
 
                             ret
@@ -167,6 +179,9 @@ print_note_20_specs endp
 print_iphone_12_specs proc
                             mov  ah, 09h
                             lea  dx, iphone_12_specs
+                            int  21h
+                            mov  ah, 09h
+                            lea  dx, iphone_12_price
                             int  21h
                             call press_any_key
 
@@ -177,6 +192,11 @@ print_iphone_se_specs proc
                             mov  ah, 09h
                             lea  dx, iphone_se_specs
                             int  21h
+
+                            mov  ah, 09h
+                            lea  dx, iphone_se_price
+                            int  21h
+
                             call press_any_key
 
                             ret
@@ -186,6 +206,9 @@ print_mi_11_specs proc
                             mov  ah, 09h
                             lea  dx, mi_11_specs
                             int  21h
+                            mov  ah, 09h
+                            lea  dx, mi_11_price
+                            int  21h
                             call press_any_key
 
                             ret
@@ -194,6 +217,9 @@ print_mi_11_specs endp
 print_redmi_note_10_specs proc
                             mov  ah, 09h
                             lea  dx, redmi_note_10_specs
+                            int  21h
+                            mov  ah, 09h
+                            lea  dx, redmi_note_10_price
                             int  21h
                             call press_any_key
 
