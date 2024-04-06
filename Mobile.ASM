@@ -23,21 +23,18 @@
     redmi_note_10_price db           "Price: PKR 50,000", 10, 13, "$"
     press_key_msg       db           "Press any key to continue...", 10, 13, "$"
 
-    ; Macro for printing a message
 PrintMessage macro message
-                                     mov         ah, 09h
-                                     lea         dx, message
-                                     int         21h
+                                     mov ah, 9
+                                     lea dx, message
+                                     int 21h
 endm
 
-    ; Macro for getting user input
 GetUserInput macro
-                                     mov         ah, 01h
-                                     int         21h
-                                     sub         al, '0'
+                                     mov ah, 1
+                                     int 21h
+                                     sub al, '0'
 endm
 
-    ; Macro for printing specs and price
 PrintSpecs macro specs, price
                                    PrintMessage specs
                                    PrintMessage price
@@ -54,20 +51,14 @@ endm
                               jmp          exit_program
 
 print_welcome_msg proc
-                              mov          ah, 09h
-                              lea          dx, welcome_msg
-                              int          21h
-                              ret
+                        PrintMessage welcome_msg
 print_welcome_msg endp
 
 brand_selection proc
                               call         print_brand_msg
                               call         print_brands
     
-    ; Get user input for brand selection
-                              mov          ah, 01h
-                              int          21h
-                              sub          al, '0'
+                              GetUserInput
     
                               cmp          al, 1
                               je           samsung
@@ -75,23 +66,24 @@ brand_selection proc
                               je           apple
                               cmp          al, 3
                               je           xiaomi
-    ;   cmp  al, 4
-    ;   je   exit_program
+                              cmp  al, 4
+                              je   exit_program
     
                               jmp          brand_selection
 brand_selection endp
 
-print_brand_msg proc
-                              mov          ah, 09h
-                              lea          dx, brand_msg
+exit_program proc
+                              mov          ah, 4Ch
                               int          21h
+exit_program endp
+
+print_brand_msg proc
+                              PrintMessage brand_msg
                               ret
 print_brand_msg endp
 
 print_brands proc
-                              mov          ah, 09h
-                              lea          dx, brands
-                              int          21h
+                              PrintMessage brands
                               ret
 print_brands endp
 
@@ -120,17 +112,12 @@ select_phone proc
 select_phone endp
 
 print_specs_msg proc
-                              mov          ah, 09h
-                              lea          dx, specs_msg
-                              int          21h
+                              PrintMessage specs_msg
                               ret
 print_specs_msg endp
 
 print_specs proc
-    ; Get user input for phone selection
-                              mov          ah, 01h
-                              int          21h
-                              sub          al, '0'
+                              GetUserInput
     
                               cmp          al, 1
                               je           print_galaxy_s21_specs
@@ -145,8 +132,6 @@ print_specs proc
                               cmp          al, 6
                               je           print_redmi_note_10_specs
 
-    ;   cmp  al,0
-    ;   je   brand_selection
                               ret
 
 print_galaxy_s21_specs proc
@@ -187,18 +172,11 @@ print_redmi_note_10_specs endp
 
 
 press_any_key proc
-                              mov          ah, 09h
-                              lea          dx, press_key_msg
-                              int          21h
-    
-                              mov          ah, 01h
-                              int          21h
+                              PrintMessage press_key_msg
+                              GetUserInput
                               ret
 press_any_key endp
 
-exit_program proc
-                              mov          ah, 4Ch
-                              int          21h
-exit_program endp
+
 
 end main
