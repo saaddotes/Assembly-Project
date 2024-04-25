@@ -2,6 +2,9 @@
 .stack 100h
 
 .data
+    welcome_msg          db           "Welcome to the Tech Online Store!", 10, 13, "$"
+    main_brand_msg       db           "Select a Category:", 10, 13, "$"
+    main_brands          db           10, 13,"1. Phones", 10, 13, "2. Laptops", 10, 13, "3. Accessories", 10, 13,"4. Exit", 10, 13,"$"
     input_password       db             'Please Enter Your Purchase Code: $'
     wrongCoupon          db             'Your Entered Purchase code is Wrong !', 10,13,'$'
     inputChars           db             10 dup('$')
@@ -10,12 +13,11 @@
     correctPassPrompt    db             'Successfully purchased.', 10,13,'$'
     menuPrompt           db             10,13, 'Choose an Option: $'
     wrongInput           db             10,13, 'Wrong Input$'
-    welcome_msg          db           "Welcome to the Tech Zone!", 10, 13, "$"
     purchase_prompt      db           10,13,"Would you like to purchase this? (1: Yes, 2: No): ", 10, 13, "$"
     brand_msg            db           "Select a brand:", 10, 13, "$"
-    main_brand_msg            db           "Select a Category:", 10, 13, "$"
+    
     brands               db           10, 13,"1. Samsung", 10, 13, "2. Apple", 10, 13, "3. Xiaomi", 10, 13,"6. Exit", 10, 13,"$"
-    main_brands               db           10, 13,"1. Phones", 10, 13, "2. Laptops", 10, 13, "3. Accessories", 10, 13,"4. Exit", 10, 13,"$"
+    
     samsung_phones       db           10, 13,"1. Galaxy S21", 10, 13, "2. Galaxy Note 20", 10, 13,"0. Back", 10, 13,"$"
     apple_phones         db           10, 13,"1. iPhone 12", 10, 13, "2. iPhone SE", 10, 13,"0. Back", 10, 13,"$"
     xiaomi_phones        db           10, 13,"1. Mi 11", 10, 13,"2. Redmi Note 10", 10, 13,"0. Back", 10, 13,"$"
@@ -67,7 +69,7 @@ endm
 
 .code
 main PROC
-                                 mov          ax, @data
+                              mov          ax, @data
                               mov          ds, ax
 
                               PrintMessage welcome_msg
@@ -88,7 +90,7 @@ main_brand_selection proc
                               PrintSpecs main_brand_msg, main_brands
                               GetUserInput
                               cmp          al, 1
-                              je           brand_selectionLink
+                              je           mobile_selectionLink
                               cmp          al, 2
                               je           laptop_selection
                               cmp          al, 3
@@ -132,9 +134,9 @@ accessory_selection proc
                               jmp          main_brand_selection
 accessory_selection endp
 
-brand_selectionLink PROC
+mobile_selectionLink PROC
     call brand_selection
-brand_selectionLink ENDP
+mobile_selectionLink ENDP
 print_macbook_pro_specs proc
                               PrintSpecs   macbook_pro_specs, macbook_pro_price
                               call buyLink
