@@ -3,7 +3,7 @@
 
 .data
     input_password       db             'Please Enter Your Purchase Code: $'
-    wrongCoupon          db             'Your Entered Purchase code is Wrong! ', 10,13,'$'
+    wrongCoupon          db             'Your Entered Purchase code is Wrong ! ', 10,13,'$'
     inputChars           db             10 dup('$')
     tryAgain             db             'Would you like to retry? (1: Yes, 2: No): ', 10,13,'$'
     password             db             'UBIT$'
@@ -139,7 +139,6 @@ print_macbook_pro_specs proc
                               PrintSpecs   macbook_pro_specs, macbook_pro_price
                               call buyLink
 print_macbook_pro_specs endp
-
 print_hp_spectre_specs proc
                               PrintSpecs   hp_spectre_specs, hp_spectre_price
                               call buyLink
