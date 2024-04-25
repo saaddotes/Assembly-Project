@@ -5,18 +5,11 @@
     welcome_msg          db           "Welcome to the Tech Online Store!", 10, 13, "$"
     select_msg           db           "Select a Category:", 10, 13, "$"
     categories_msg       db           10, 13,"1. Phones", 10, 13, "2. Laptops", 10, 13, "3. Accessories", 10, 13,"4. Exit", 10, 13,"$"
+    ; Categories
     mobile_items         db           10, 13,"1. Samsung", 10, 13, "2. Apple", 10, 13, "3. Xiaomi", 10, 13,"6. Exit", 10, 13,"$"
     accessories_items    db           10, 13,"1. Headphones", 10, 13, "2. Phone Cases", 10, 13, "3. Power Banks", 10, 13,"0. Back", 10, 13,"$"
     laptops_items        db           10, 13,"1. Dell XPS 15", 10, 13, "2. MacBook Pro", 10, 13, "3. HP Spectre x360", 10, 13,"0. Back", 10, 13,"$"
 
-    purchase_prompt       db           10,13,"Would you like to purchase this? (1: Yes, 2: No): ", 10, 13, "$"
-    input_purchase_msg    db             'Please Enter Your Purchase Code: $'
-    input_chars           db             10 dup('$')
-    purchase_code         db             'UBIT$'
-    correct_purchase_code db             'Successfully purchased.', 10,13,'$'
-    wrong_purchase_code   db             'Your Entered Purchase code is Wrong !', 10,13,'$'
-    try_again             db             'Would you like to retry? (1: Yes, 2: No): ', 10,13,'$'
-   
     specs_msg            db           "Specifications:", 10, 13, "$"
 
     ; Mobile Brands
@@ -63,6 +56,15 @@
     hp_spectre_specs     db           10, 13,"HP Spectre x360 Specs: 13.3-inch 4K display, Intel Core i7, 16GB RAM, 512GB SSD", 10, 13, "$"
     hp_spectre_price     db           "Price: PKR 180,000", 10, 13, "$"
 
+    ; Purchase Code Variables
+    purchase_prompt       db           10,13,"Would you like to purchase this? (1: Yes, 2: No): ", 10, 13, "$"
+    input_purchase_msg    db             'Please Enter Your Purchase Code: $'
+    input_chars           db             10 dup('$')
+    purchase_code         db             'UBIT$'
+    correct_purchase_code db             'Successfully purchased.', 10,13,'$'
+    wrong_purchase_code   db             'Your Entered Purchase code is Wrong !', 10,13,'$'
+    try_again             db             'Would you like to retry? (1: Yes, 2: No): ', 10,13,'$'
+   
     press_key_msg        db           "Press any key to continue...", 10, 13, "$"
     wrongInput           db             10,13, 'Wrong Input$'
 
