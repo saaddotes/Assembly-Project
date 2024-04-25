@@ -3,7 +3,7 @@
 
 .data
     input_password       db             'Please Enter Your Purchase Code: $'
-    wrongCoupon          db             'Your Entered Purchase code is Wrong ! ', 10,13,'$'
+    wrongCoupon          db             'Your Entered Purchase code is Wrong !', 10,13,'$'
     inputChars           db             10 dup('$')
     tryAgain             db             'Would you like to retry? (1: Yes, 2: No): ', 10,13,'$'
     password             db             'UBIT$'
@@ -12,7 +12,7 @@
     wrongInput           db             10,13, 'Wrong Input$'
     welcome_msg          db           "Welcome to the Tech Zone!", 10, 13, "$"
     purchase_prompt      db           10,13,"Would you like to purchase this? (1: Yes, 2: No): ", 10, 13, "$"
-    brand_msg            db           "Select a mobile brand:", 10, 13, "$"
+    brand_msg            db           "Select a brand:", 10, 13, "$"
     main_brand_msg            db           "Select a Category:", 10, 13, "$"
     brands               db           10, 13,"1. Samsung", 10, 13, "2. Apple", 10, 13, "3. Xiaomi", 10, 13,"6. Exit", 10, 13,"$"
     main_brands               db           10, 13,"1. Phones", 10, 13, "2. Laptops", 10, 13, "3. Accessories", 10, 13,"4. Exit", 10, 13,"$"
